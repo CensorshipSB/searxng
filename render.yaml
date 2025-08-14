@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: searxng
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn searx.webapp:app
+    envVars:
+      - key: BASE_URL
+        value: https://searxng.onrender.com
+      - key: INSTANCE_NAME
+        value: My Free Search
